@@ -1,12 +1,13 @@
+lurker = require("libraries.lurker")
 local screenWidth, screenHeight = 800, 600
 local backgroundColor = {0.1, 0.1, 0.15, 1}
 local notes = {"C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"}
 local octaves = {3, 4, 5}
 local grid = {}
-local gridWidth = 16  -- Numero di beat
-local gridHeight = #notes * #octaves  -- Numero di note totali
-local cellSize = 30
-local gridOffsetX, gridOffsetY = 100, 50
+local gridWidth = 16  -- Number of beats
+local gridHeight = #notes * #octaves  -- Total number of notes
+local cellSize = 40
+local gridOffsetX, gridOffsetY = 60, 92
 local currentBeat = 1
 local isPlaying = false
 local bpm = 120
@@ -33,14 +34,14 @@ local buttons = {
     {
         text = "Play/Pause",
         x = 20,
-        y = 20,
+        y = 14,
         width = 100,
         height = 30,
         action = function() isPlaying = not isPlaying end
     },
     {
         text = "Sine",
-        x = 20,
+        x = 149.77,
         y = 60,
         width = 80,
         height = 25,
@@ -48,7 +49,7 @@ local buttons = {
     },
     {
         text = "Square",
-        x = 110,
+        x = 234,
         y = 60,
         width = 80,
         height = 25,
@@ -56,7 +57,7 @@ local buttons = {
     },
     {
         text = "Triangle",
-        x = 200,
+        x = 317.32,
         y = 60,
         width = 80,
         height = 25,
@@ -64,7 +65,7 @@ local buttons = {
     },
     {
         text = "Sawtooth",
-        x = 290,
+        x = 400,
         y = 60,
         width = 80,
         height = 25,
@@ -72,8 +73,8 @@ local buttons = {
     },
     {
         text = "Clear All",
-        x = 390,
-        y = 20,
+        x = 561,
+        y = 15,
         width = 80,
         height = 30,
         action = function() grid = {} end
@@ -95,8 +96,8 @@ local sliders = {
     },
     {
         name = "Volume",
-        x = 390,
-        y = 60,
+        x = 347,
+        y = 20.55,
         width = 200,
         height = 20,
         min = 0,
@@ -109,7 +110,7 @@ local sliders = {
 -- Initizialization
 function love.load()
     love.window.setMode(screenWidth, screenHeight)
-    love.window.setTitle("Editor Musicale Procedurale")
+    love.window.setTitle("Notifu Editor")
     love.keyboard.setKeyRepeat(true)
     
     -- Inizializza la griglia vuota
@@ -254,13 +255,13 @@ end
 
 -- Update the game status
 function love.update(dt)
+    lurker.update()
     -- Cleaning of completed audio sources
     for i = #soundSources, 1, -1 do
         if not soundSources[i]:isPlaying() then
             table.remove(soundSources, i)
         end
     end
-    
     -- Update the playback
     if isPlaying then
         beatTimer = beatTimer + dt
@@ -302,7 +303,6 @@ function love.draw()
         local y = gridOffsetY + i * cellSize
         love.graphics.line(gridOffsetX, y, gridOffsetX + gridWidth * cellSize, y)
     end
-    
     -- Draw the active notes and the cells
     for x = 1, gridWidth do
         for y = 1, gridHeight do
@@ -372,16 +372,10 @@ function love.draw()
         love.graphics.print(slider.name .. ": " .. math.floor(slider.value * 100) / 100, 
                            slider.x, slider.y - 15)
     end
-    
     -- Additional information
     love.graphics.setColor(colors.text)
-    love.graphics.print("Waveform: " .. selectedWaveform, 20, 100)
-    love.graphics.print("Beat: " .. currentBeat .. "/" .. gridWidth, 20, 120)
-    
-    -- Help info
-    love.graphics.print("Click sulle celle per aggiungere/rimuovere note", 20, screenHeight - 60)
-    love.graphics.print("Spazio per play/pause", 20, screenHeight - 40)
-    love.graphics.print("C per pulire la griglia", 20, screenHeight - 20)
+    love.graphics.print("Waveform: " .. selectedWaveform, 707, 101)
+    love.graphics.print("Beat: " .. currentBeat .. "/" .. gridWidth, 707, 120)
 end
 
 -- Mouse input management
