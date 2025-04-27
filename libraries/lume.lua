@@ -29,7 +29,7 @@ local type, assert, unpack = type, assert, unpack or table.unpack
 local tostring, tonumber = tostring, tonumber
 local math_floor = math.floor
 local math_ceil = math.ceil
-local math_atan2 = math.atan2 or math.atan
+local math_atan2 = math.atan or math.atan
 local math_sqrt = math.sqrt
 local math_abs = math.abs
 
