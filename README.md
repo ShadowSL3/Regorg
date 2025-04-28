@@ -15,7 +15,7 @@
 ```
 winget install DEVCOM.Lua
 ```
-2. Downlosd & install [LÖVE](https://love2d.org/)
+2. Download & install [LÖVE](https://love2d.org/)
 3. Add LÖVE to environment path
 4.  Run
 ```
