@@ -33,79 +33,54 @@ local colors = {
 local buttons = {
     {
         text = "Play/Pause",
-        x = 20,
-        y = 14,
+        x = 10*2,
+        y = 5*3,
         width = 100,
         height = 30,
         action = function() isPlaying = not isPlaying end
     },
     {
         text = "Sine",
-        x = 149.77,
-        y = 60,
-        width = 80,
-        height = 25,
+        x = 120*7.35,
+        y = 20*3,
+        width = 20*4,
+        height = 5*5,
         action = function() selectedWaveform = "sine" end
     },
     {
         text = "Square",
         x = 234,
-        y = 60,
-        width = 80,
-        height = 25,
+        y = 20*3,
+        width = 20*4,
+        height = 5*5,
         action = function() selectedWaveform = "square" end
     },
     {
         text = "Triangle",
-        x = 317.32,
-        y = 60,
-        width = 80,
-        height = 25,
+        x = 21*15.11,
+        y = 20*3,
+        width = 40*2,
+        height = 5*5,
         action = function() selectedWaveform = "triangle" end
     },
     {
         text = "Sawtooth",
-        x = 400,
-        y = 60,
-        width = 80,
-        height = 25,
+        x = 40*10,
+        y = 20*3,
+        width = 20*4,
+        height = 5*5,
         action = function() selectedWaveform = "sawtooth" end
     },
     {
         text = "Clear All",
-        x = 561,
-        y = 15,
-        width = 80,
-        height = 30,
+        x = 40*14,
+        y = 3*5,
+        width = 40*2,
+        height = 15*2,
         action = function() grid = {} end
     }
 }
 
--- Slider for controls
-local sliders = {
-    {
-        name = "BPM",
-        x = 140,
-        y = 20,
-        width = 200,
-        height = 20,
-        min = 60,
-        max = 200,
-        value = bpm,
-        onChange = function(value) bpm = value end
-    },
-    {
-        name = "Volume",
-        x = 347,
-        y = 20.55,
-        width = 200,
-        height = 20,
-        min = 0,
-        max = 1.24,
-        value = volume,
-        onChange = function(value) volume = value end
-    }
-}
 
 -- Initizialization
 function love.load()
