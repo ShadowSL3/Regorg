@@ -18,13 +18,12 @@ function gfx.draw()
 end
 
 function gfx.rect(x, y, width, height, color, border)
-    love.graphics.setColor(color or gfx.color.white)
+ --    love.graphics.setColor(color or gfx.color.white)
     love.graphics.rectangle("fill", x, y, width, height)
 
-    if border then
-        love.graphics.setColor(border)
-        love.graphics.rectangle("line", x, y, width, height)
-    end
+    -- if border then
+        --love.graphics.setColor(border)
+        --love.graphics.rectangle("line", x, y, width, height)
 end
 function gfx.update(dt)
 end

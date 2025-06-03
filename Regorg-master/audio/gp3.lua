@@ -33,7 +33,7 @@ function gp3:play()
     if self.source then
         self.source:play()
 end
-
+end
 function gp3:setVolume(volume)
     self.volume = volume
     if self.source then
@@ -45,6 +45,5 @@ function gp3:setPitch(pitch)
     if self.source then 
         self.source:setPitch(pitch)
     end
-end
 end
 return gp3
