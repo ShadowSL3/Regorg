@@ -1,0 +1,1 @@
+-- shader_manager.lua implementation will go here
