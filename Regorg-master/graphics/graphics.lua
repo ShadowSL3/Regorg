@@ -34,9 +34,11 @@ end
 -- end
 function gfx.newShader(shaderCode)
     local shader = love.graphics.newShader(shaderCode)
-    love.graphics.setShader(shader)
     return shader
 end
 
-function gfx.setShader(sha)
+function gfx.setShader(shader)
+    love.graphics.setShader(shader)
+    return shader
+end
 return gfx
