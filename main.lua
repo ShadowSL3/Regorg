@@ -1,12 +1,23 @@
+<<<<<<< HEAD
+=======
+lurker = require("libraries.lurker")
+>>>>>>> 9b185bb42f41e850321442f6262a24354757f461
 local screenWidth, screenHeight = 800, 600
 local backgroundColor = {0.1, 0.1, 0.15, 1}
 local notes = {"C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"}
 local octaves = {3, 4, 5}
 local grid = {}
+<<<<<<< HEAD
 local gridWidth = 16  -- Numero di beat
 local gridHeight = #notes * #octaves  -- Numero di note totali
 local cellSize = 30
 local gridOffsetX, gridOffsetY = 100, 50
+=======
+local gridWidth = 16  -- Number of beats
+local gridHeight = #notes * #octaves  -- Total number of notes
+local cellSize = 40
+local gridOffsetX, gridOffsetY = 60, 92
+>>>>>>> 9b185bb42f41e850321442f6262a24354757f461
 local currentBeat = 1
 local isPlaying = false
 local bpm = 120
@@ -32,54 +43,95 @@ local colors = {
 local buttons = {
     {
         text = "Play/Pause",
+<<<<<<< HEAD
         x = 20,
         y = 20,
+=======
+        x = 10*2,
+        y = 5*3,
+>>>>>>> 9b185bb42f41e850321442f6262a24354757f461
         width = 100,
         height = 30,
         action = function() isPlaying = not isPlaying end
     },
     {
         text = "Sine",
+<<<<<<< HEAD
         x = 20,
         y = 60,
         width = 80,
         height = 25,
+=======
+        x = 120*7.35,
+        y = 20*3,
+        width = 20*4,
+        height = 5*5,
+>>>>>>> 9b185bb42f41e850321442f6262a24354757f461
         action = function() selectedWaveform = "sine" end
     },
     {
         text = "Square",
+<<<<<<< HEAD
         x = 110,
         y = 60,
         width = 80,
         height = 25,
+=======
+        x = 234,
+        y = 20*3,
+        width = 20*4,
+        height = 5*5,
+>>>>>>> 9b185bb42f41e850321442f6262a24354757f461
         action = function() selectedWaveform = "square" end
     },
     {
         text = "Triangle",
+<<<<<<< HEAD
         x = 200,
         y = 60,
         width = 80,
         height = 25,
+=======
+        x = 21*15.11,
+        y = 20*3,
+        width = 40*2,
+        height = 5*5,
+>>>>>>> 9b185bb42f41e850321442f6262a24354757f461
         action = function() selectedWaveform = "triangle" end
     },
     {
         text = "Sawtooth",
+<<<<<<< HEAD
         x = 290,
         y = 60,
         width = 80,
         height = 25,
+=======
+        x = 40*10,
+        y = 20*3,
+        width = 20*4,
+        height = 5*5,
+>>>>>>> 9b185bb42f41e850321442f6262a24354757f461
         action = function() selectedWaveform = "sawtooth" end
     },
     {
         text = "Clear All",
+<<<<<<< HEAD
         x = 390,
         y = 20,
         width = 80,
         height = 30,
+=======
+        x = 40*14,
+        y = 3*5,
+        width = 40*2,
+        height = 15*2,
+>>>>>>> 9b185bb42f41e850321442f6262a24354757f461
         action = function() grid = {} end
     }
 }
 
+<<<<<<< HEAD
 -- Slider for controls
 local sliders = {
     {
@@ -105,11 +157,17 @@ local sliders = {
         onChange = function(value) volume = value end
     }
 }
+=======
+>>>>>>> 9b185bb42f41e850321442f6262a24354757f461
 
 -- Initizialization
 function love.load()
     love.window.setMode(screenWidth, screenHeight)
+<<<<<<< HEAD
     love.window.setTitle("Editor Musicale Procedurale")
+=======
+    love.window.setTitle("Notifu Editor")
+>>>>>>> 9b185bb42f41e850321442f6262a24354757f461
     love.keyboard.setKeyRepeat(true)
     
     -- Inizializza la griglia vuota
@@ -254,13 +312,20 @@ end
 
 -- Update the game status
 function love.update(dt)
+<<<<<<< HEAD
+=======
+    lurker.update()
+>>>>>>> 9b185bb42f41e850321442f6262a24354757f461
     -- Cleaning of completed audio sources
     for i = #soundSources, 1, -1 do
         if not soundSources[i]:isPlaying() then
             table.remove(soundSources, i)
         end
     end
+<<<<<<< HEAD
     
+=======
+>>>>>>> 9b185bb42f41e850321442f6262a24354757f461
     -- Update the playback
     if isPlaying then
         beatTimer = beatTimer + dt
@@ -302,7 +367,10 @@ function love.draw()
         local y = gridOffsetY + i * cellSize
         love.graphics.line(gridOffsetX, y, gridOffsetX + gridWidth * cellSize, y)
     end
+<<<<<<< HEAD
     
+=======
+>>>>>>> 9b185bb42f41e850321442f6262a24354757f461
     -- Draw the active notes and the cells
     for x = 1, gridWidth do
         for y = 1, gridHeight do
@@ -372,6 +440,7 @@ function love.draw()
         love.graphics.print(slider.name .. ": " .. math.floor(slider.value * 100) / 100, 
                            slider.x, slider.y - 15)
     end
+<<<<<<< HEAD
     
     -- Additional information
     love.graphics.setColor(colors.text)
@@ -382,6 +451,12 @@ function love.draw()
     love.graphics.print("Click sulle celle per aggiungere/rimuovere note", 20, screenHeight - 60)
     love.graphics.print("Spazio per play/pause", 20, screenHeight - 40)
     love.graphics.print("C per pulire la griglia", 20, screenHeight - 20)
+=======
+    -- Additional information
+    love.graphics.setColor(colors.text)
+    love.graphics.print("Waveform: " .. selectedWaveform, 707, 101)
+    love.graphics.print("Beat: " .. currentBeat .. "/" .. gridWidth, 707, 120)
+>>>>>>> 9b185bb42f41e850321442f6262a24354757f461
 end
 
 -- Mouse input management
