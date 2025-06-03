@@ -37,4 +37,6 @@ function gfx.newShader(shaderCode)
     love.graphics.setShader(shader)
     return shader
 end
+
+function gfx.setShader(sha)
 return gfx
