@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 # --- Compiled Lua files ---
 *.luac
 *.out
@@ -34,6 +35,8 @@ lib/   # Local libraries
 *.log
 *.tmp
 =======
+=======
+>>>>>>> 5071a27ba2d6ed1f6663513966af610875fd4d2e
 # Compiled Lua sources
 luac.out
 
@@ -75,4 +78,7 @@ luac.out
 *.x86_64
 *.hex
 
+<<<<<<< HEAD
 >>>>>>> 9b185bb42f41e850321442f6262a24354757f461
+=======
+>>>>>>> 5071a27ba2d6ed1f6663513966af610875fd4d2e

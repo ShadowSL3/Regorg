@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 lurker = require("libraries.lurker")
 >>>>>>> 9b185bb42f41e850321442f6262a24354757f461
@@ -524,4 +525,28 @@ function love.keypressed(key)
     elseif key == "escape" then
         love.event.quit()
     end
+=======
+local gfx = require("graphics.graphics")
+local gp3 = require "audio.gp3"
+function love.load()
+
+    shader = gfx.newShader([[ 
+       
+    vec4 effect( vec4 color, Image texture, vec2 texture_coords, vec2 screen_coords ){
+      vec4 pixel = Texel(texture, texture_coords );//This is the current pixel color
+      return pixel * color;
+    }
+    ]])
+end
+
+function love.update(dt)
+
+end
+
+
+function love.draw()
+    love.graphics.setShader(shader)
+    gfx.rect(10, 0, 50, 10, 255, 0)
+    love.graphics.setShader()
+>>>>>>> 5071a27ba2d6ed1f6663513966af610875fd4d2e
 end
